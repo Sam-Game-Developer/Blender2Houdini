@@ -1,0 +1,5 @@
+* text=auto
+*.zip binary
+*.png binary
+*.exr binary
+*.icc binary

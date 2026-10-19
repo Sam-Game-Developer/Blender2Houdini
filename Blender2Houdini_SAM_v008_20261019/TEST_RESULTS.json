@@ -1,0 +1,64 @@
+{
+  "release": "Blender2Houdini_SAM_v008_20261019",
+  "version": [
+    0,
+    0,
+    8
+  ],
+  "date": "20261019",
+  "blender_report": {
+    "version": [
+      0,
+      0,
+      8
+    ],
+    "full_scene_roots": 2,
+    "nested_collection_path": true,
+    "car_expands_complete_root": true,
+    "props_button": true,
+    "camera_and_light_metadata": true
+  },
+  "houdini_report": [
+    {
+      "builder": "karma",
+      "geometry_containers": 2,
+      "nested_collections": true,
+      "part_names": 7,
+      "world_positions_units_pivots": "PASS",
+      "uvs": true,
+      "front_left_group": true,
+      "usd_meshes": 16,
+      "bound_meshes": 16,
+      "camera_and_light": true,
+      "variant_switch_geometry_unchanged": true,
+      "errors": []
+    },
+    {
+      "builder": "materialx",
+      "geometry_containers": 2,
+      "nested_collections": true,
+      "part_names": 7,
+      "world_positions_units_pivots": "PASS",
+      "uvs": true,
+      "front_left_group": true,
+      "usd_meshes": 16,
+      "bound_meshes": 16,
+      "camera_and_light": true,
+      "variant_switch_geometry_unchanged": true,
+      "errors": []
+    }
+  ],
+  "return_report": {
+    "meshes": 7,
+    "uvs": true,
+    "collections_restored": true,
+    "parent_preserved": true,
+    "world_positions": "PASS"
+  },
+  "resend_report": {
+    "asset_containers_after_resend": 2,
+    "bindings_after_resend": 16,
+    "meshes_after_resend": 16,
+    "no_duplicate_geometry_or_bindings": true
+  }
+}

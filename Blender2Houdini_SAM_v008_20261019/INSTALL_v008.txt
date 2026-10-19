@@ -1,0 +1,82 @@
+Blender2Houdini SAM v008 | Samsul Alam Niom | 20261019
+
+INSTALL
+Extract the Installer ZIP. Save work and close both apps, run Install.cmd, then
+restart Blender/Houdini. Enable Blender2Houdini SAM v008 if required.
+Runtime is installed under AppData/BinaryCGI/Blender2Houdini/v008. Owned previous
+files are backed up. Exchange, texture-only send and reconnect remain available.
+
+BLENDER BUTTONS
+Send Car / Object: choose any mesh in an asset root collection. All meshes in
+that root collection are sent together, including nested child collections.
+Send Props: the same collection structure, tagged as a props send.
+Send Full Scene + Collections: send all scene meshes, collection metadata and
+standard native camera/light metadata. Hidden mesh flags are retained as source
+metadata; imported mesh visibility is not automatically pruned.
+Send Textures Only: existing image paths are updated without geometry rebuild.
+
+RECOMMENDED COLLECTIONS
+Sports_Car [top-level asset root]
+  Body
+  Doors
+  Wheels
+    Front_Left
+    Front_Right
+Street_Props [another asset root]
+  Crates
+
+HOUDINI
+/obj/Sports_Car is one Geometry container. Collections become nested SOP subnets.
+Each original mesh is a named part subnet within its collection.
+Each part contains its material pieces, MERGE_MATERIALS, PART_TRANSFORM and OUT_PART.
+PART_TRANSFORM has the original pivot and starts with no added transformation.
+Each collection outputs through MERGE_COLLECTION / OUT_COLLECTION.
+At the Geometry root: MERGE_CAR -> OUT_CAR.
+One SOP Import per asset feeds the shared Stage material/light/render pipeline.
+
+PART IDENTITY / CRASH PREPARATION
+Primitive attributes: name, part_name, asset_name, collection_path,
+collection_paths (JSON), parent_name, blender_order, rest_pivot, rest_transform,
+crash_piece, path and shop_materialpath. Crash-piece IDs are local to each asset.
+Collection and part primitive groups use collection_/part_ prefixes with a short
+collision-safe suffix. Group paths are listed in the Geometry node's
+b2h_collection_groups metadata. Filter by name or collection_path directly.
+These are selection/preparation groups; no fracture simulation or rig is created.
+UVs and source normals are retained through native FBX. Source object origins,
+parent metadata and relative/world positions are preserved. Root pivot comes
+from a common source parent when available; otherwise the collection has identity
+transform, since Blender collections themselves have no transform.
+
+NAMING / MEMBERSHIP
+Top-level scene collections are asset roots. A generic Collection wrapper is
+ignored; meshes directly in a flat default Collection remain separate objects.
+Multiple collection links use one deterministic primary path, avoiding duplicate
+meshes; all membership paths remain in metadata and a warning identifies the choice.
+Houdini-invalid node-name characters are sanitized; exact Blender names stay in
+attributes. Native node name collisions get numeric suffixes; original names remain.
+Send Car/Object and Props expand to a whole asset so re-sending one chosen mesh
+does not erase the rest of its car. Re-send rebuilds that bridge-owned asset's SOPs.
+Legacy per-mesh bridge containers are preserved in hidden B2H_SOURCE_DATA during
+re-send migration. Save/checkpoint custom edits before rebuilding an imported asset.
+
+RETURN TO BLENDER
+The existing return workflow now reads nested material outputs. Selecting the
+asset Geometry or a part under it returns the complete asset. Original mesh names,
+UVs, source parent hierarchy and collection paths are restored under From_Houdini.
+
+FULL-SCENE LIMITS
+Static evaluated meshes only. No rig controls, animation, constraints, collection
+instances, Blender world/environment shader or render settings conversion.
+Standard perspective/orthographic cameras and basic area/point/sun/spot lights
+are imported. Light energy is approximate across renderers; matching renders is
+not guaranteed. Panoramic cameras are omitted. Use the HDRI library for environments.
+This release does not automatically rearrange an already-open scene: re-send its
+Blender asset with the new collection layout to generate the structure.
+
+VALIDATION
+Blender 5.2.2 LTS / Houdini 22.0.466 fixtures: two asset roots, eight mesh objects,
+sixteen material parts, nested wheel collections, rotated/scaled objects, 0.01
+unit scale, pivots, UVs, material bindings, both builder variants, camera/light
+prims, Props scope, repeat-import deduplication and return-to-Blender collections.
+See TEST_RESULTS.json. Pixel-render comparison and an actual crash simulation were
+not performed. Existing live source scenes are not replaced by the fixture tests.

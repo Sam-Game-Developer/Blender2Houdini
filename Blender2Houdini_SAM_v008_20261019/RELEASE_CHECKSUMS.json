@@ -1,0 +1,20 @@
+[
+  {
+    "file": "Blender2Houdini_SAM_v008_20261019_Installer.zip",
+    "bytes": 5941408,
+    "sha256": "d5ddd73080b5737a384a4536c4b572a13c9e577b9fbe93889f0043c19545a7bc",
+    "crc": "PASS"
+  },
+  {
+    "file": "Blender2Houdini_SAM_v008_20261019_HoudiniConnector.zip",
+    "bytes": 5877923,
+    "sha256": "c58aa1c779f6bee842276ea8ea8a41819b6da129c88719ddb0f1cb5bea456ae6",
+    "crc": "PASS"
+  },
+  {
+    "file": "Blender2Houdini_SAM_v008_20261019_BlenderAddon.zip",
+    "bytes": 63387,
+    "sha256": "301a1b00292a0f379cb39a341b937a9fc28a7af0d451bb3a431f80ff7a2a0168",
+    "crc": "PASS"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "version": [
+    0,
+    0,
+    8
+  ],
+  "full_scene_roots": 2,
+  "nested_collection_path": true,
+  "car_expands_complete_root": true,
+  "props_button": true,
+  "camera_and_light_metadata": true
+}

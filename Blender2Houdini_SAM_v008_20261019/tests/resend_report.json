@@ -1,0 +1,6 @@
+{
+  "asset_containers_after_resend": 2,
+  "bindings_after_resend": 16,
+  "meshes_after_resend": 16,
+  "no_duplicate_geometry_or_bindings": true
+}

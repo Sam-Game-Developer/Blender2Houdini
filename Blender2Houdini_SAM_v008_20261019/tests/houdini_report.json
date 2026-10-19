@@ -1,0 +1,30 @@
+[
+  {
+    "builder": "karma",
+    "geometry_containers": 2,
+    "nested_collections": true,
+    "part_names": 7,
+    "world_positions_units_pivots": "PASS",
+    "uvs": true,
+    "front_left_group": true,
+    "usd_meshes": 16,
+    "bound_meshes": 16,
+    "camera_and_light": true,
+    "variant_switch_geometry_unchanged": true,
+    "errors": []
+  },
+  {
+    "builder": "materialx",
+    "geometry_containers": 2,
+    "nested_collections": true,
+    "part_names": 7,
+    "world_positions_units_pivots": "PASS",
+    "uvs": true,
+    "front_left_group": true,
+    "usd_meshes": 16,
+    "bound_meshes": 16,
+    "camera_and_light": true,
+    "variant_switch_geometry_unchanged": true,
+    "errors": []
+  }
+]
