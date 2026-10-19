@@ -1,0 +1,34 @@
+{
+  "version": "v011",
+  "reports": {
+    "LIVE_SINGLE_GEOMETRY_REPORT.json": {
+      "hip": "C:/Users/Samsul Alam Niom/Documents/BinaryCGI/Software_Development/Blender2Houdini_SAM_v011_20261019/scenes/Sports_Car_SAM_v011_20261019.hip",
+      "obj_roots": [
+        [
+          "Sports_Car",
+          "geo"
+        ]
+      ],
+      "layout": "single_geometry",
+      "named_parts": 117,
+      "faces": 109990,
+      "uv": true,
+      "root_transform": "/obj/Sports_Car/Car_Main",
+      "wheel_transform": "/obj/Sports_Car/Wheels/Front_Left/TRANSFORM_Front_Left",
+      "wheel_pivot": [
+        1.060196876525879,
+        0.3629891276359558,
+        1.536869764328003
+      ],
+      "door_transform": "/obj/Sports_Car/Doors/Door_L/TRANSFORM_Door_L",
+      "stage_meshes": 146,
+      "unbound": [],
+      "sopimports": [
+        "/stage/IMPORT_Sports_Car"
+      ],
+      "stage_source": "/obj/Sports_Car/SOURCE_DATA/WORLD_EXPORT/OUT_STAGE",
+      "engine": "xpu",
+      "active_errors": []
+    }
+  }
+}

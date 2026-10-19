@@ -1,0 +1,41 @@
+Blender2Houdini SAM v011 | Samsul Alam Niom | 20261019
+
+INSTALL
+Extract Installer ZIP; save/close apps and run Install.cmd. Prior owned files are
+backed up. Restart apps and enable Blender2Houdini SAM v011 if necessary.
+
+WORKFLOW
+Select Car_Main in Blender and Send Car / Object. Child meshes, parent names,
+object-origin pivots, units, UVs and supported PBR materials are exported.
+
+HOUDINI
+One visible Geometry object per asset: /obj/Sports_Car.
+Inside it, Body / Doors / Wheels / Interior / Lights are SOP subnet branches.
+Each named mesh has an editable Transform SOP; each parent group ends in its own
+Transform SOP with the source Blender pivot. Door_L and Front_Left branches
+contain their respective mesh parts. Car_Main is a final Transform SOP after
+MERGE_CAR; OUT_CAR is the display/render output. No rig drivers are generated.
+Use the OBJ Geometry transform for the whole asset, Car_Main for global geometry
+movement, and group/part Transform SOPs for individual components. A SOP Null
+is an output/reference, not an OBJ-style transform parent.
+Previous sources and the former OBJ hierarchy are retained inside the internal
+SOURCE_DATA object network. They are not the editable visible asset.
+
+SOLARIS
+One SOP Import per asset feeds MERGE_ASSETS, shared Material Library and Assign
+Materials, existing lighting/camera, Karma XPU and OUT_FINAL_STAGE. Parts retain
+unique names, UVs, material assignments and parent-based USD paths. Merging SOP
+streams does not weld separate parts. The internal world-output Object Merge
+includes the Geometry object's world transform so OBJ moves reach Solaris.
+No manual import of individual parts into Solaris is needed.
+
+SAVING
+Keep the exchange folder beside the HIP: it contains textures and source caches.
+Save As collects bridge-owned dependencies beside the new HIP. Source geometry is
+cached without UV regeneration or polygon reduction. Bone/skin/driver animation
+transfer is unsupported. Static mesh/material return export remains available.
+
+READBACK
+LIVE_SINGLE_GEOMETRY_REPORT.json records the actual import structure, named part
+count, face count, UV presence, pivot parameters, Solaris bindings and errors.
+No final render or animation test is claimed by this report.
