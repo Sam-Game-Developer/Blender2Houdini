@@ -1,0 +1,11 @@
+{
+  "version": "v012",
+  "date": "2026-10-20",
+  "tests_run": 14,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "Isolated exporter functions and connector I/O with bpy/hou stubs; real filesystem copies",
+  "live_dcc_transfer": "NOT_RUN",
+  "render": "NOT_RUN"
+}
